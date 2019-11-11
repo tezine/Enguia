@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/OtherFiles">
+        <file>agreement.html</file>
+        <file>applause.wav</file>
+        <file>btnsound.wav</file>
+        <file>error.wav</file>
+        <file>wrong.wav</file>
+        <file>enguiamobile.s3db</file>
+    </qresource>
+</RCC>

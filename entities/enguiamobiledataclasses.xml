@@ -1,0 +1,582 @@
+<project name="EnguiaMobile">
+<includes>
+    <include name="QStringList"/>
+    <include name="QDateTime"/>
+    <include name="QVariant"/>
+    <include name="QObject"/>
+</includes>
+<classes>	
+    <class name="EDistinctMsgUser">
+	  <variable type="qint64" name="userID"/>
+	  <variable type="QString" name="userName"/>
+	  <variable type="QString" name="login"/>
+	  <variable type="qint64" name="msgID"/>
+    </class>
+    <class name="EFunPicture">
+	  <variable type="qint64" name="funID"/>
+	  <variable type="qint64" name="picNumber"/>
+	  <variable type="QString" name="author"/>
+	  <variable type="QString" name="description"/>
+	  <variable type="QByteArray" name="image"/>
+    </class>    
+    <class name="EFunPlace" >
+	     <variable type="qint64" name="id"/>
+	     <variable type="QString" name="name"/>
+	     <variable type="QString" name="description"/>
+	     <variable type="qint64" name="categoryID"/>
+	     <variable type="qint64" name="cityID"/>
+	     <variable type="QString" name="postalCode"/>
+	     <variable type="QString" name="phone1"/>
+	     <!--<variable type="QString" name="phone2"/>
+	     <variable type="QString" name="webSite"/>
+	     <variable type="qint32" name="capacity"/>
+	     <variable type="QString" name="structure"/>
+	     <variable type="qint32" name="price"/>
+	     <variable type="qint32" name="ageRange"/>
+	     <variable type="QString" name="picture1Author"/>
+	     <variable type="QString" name="picture2Author"/>
+	     <variable type="QString" name="picture3Author"/>
+	     <variable type="QString" name="picture4Author"/>
+	     <variable type="QString" name="picture5Author"/>
+	     <variable type="QString" name="picture6Author"/>
+	     <variable type="QString" name="picture7Author"/>
+	     <variable type="QString" name="picture8Author"/>
+	     <variable type="QString" name="picture9Author"/>
+	     <variable type="QString" name="picture10Author"/>
+	     <variable type="QString" name="picture11Author"/>
+	     <variable type="QString" name="picture12Author"/>
+	     <variable type="QString" name="picture1Description"/>
+	     <variable type="QString" name="picture2Description"/>
+	     <variable type="QString" name="picture3Description"/>
+	     <variable type="QString" name="picture4Description"/>
+	     <variable type="QString" name="picture5Description"/>
+	     <variable type="QString" name="picture6Description"/>
+	     <variable type="QString" name="picture7Description"/>
+	     <variable type="QString" name="picture8Description"/>
+	     <variable type="QString" name="picture9Description"/>
+	     <variable type="QString" name="picture10Description"/>
+	     <variable type="QString" name="picture11Description"/>
+	     <variable type="QString" name="picture12Description"/>
+	     <variable type="QDate" name="startDate"/>
+	     <variable type="QDate" name="endDate"/>
+	     <variable type="QTime" name="mondayStart"/>
+	     <variable type="QTime" name="mondayEnd"/>
+	     <variable type="QTime" name="tuesdayStart"/>
+	     <variable type="QTime" name="tuesdayEnd"/>
+	     <variable type="QTime" name="wednesdayStart"/>
+	     <variable type="QTime" name="wednesdayEnd"/>
+	     <variable type="QTime" name="thursdayStart"/>
+	     <variable type="QTime" name="thursdayEnd"/>
+	     <variable type="QTime" name="fridayStart"/>
+	     <variable type="QTime" name="fridayEnd"/>
+	     <variable type="QTime" name="saturdayStart"/>
+	     <variable type="QTime" name="saturdayEnd"/>
+	     <variable type="QTime" name="sundayStart"/>
+	     <variable type="QTime" name="sundayEnd"/>
+	     <variable type="qint32" name="visibility"/>
+	     <variable type="qint64" name="userID"/>
+	     <variable type="QString" name="address"/>
+	     <variable type="QString" name="brief"/>
+	     <variable type="QString" name="email"/>
+	     <variable type="qint32" name="cityRegionID"/>
+	     <variable type="double" name="latitude"/>
+	     <variable type="double" name="longitude"/>
+	     <variable type="qint64" name="viewCount"/> -->
+	 </class>
+    <class name="ECSFunPlaceComment" >
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="funID"/>
+	  <variable type="qint64" name="userID"/>
+	  <variable type="qint32" name="rating"/>
+	  <variable type="qint64" name="categoryID"/>
+	  <variable type="QString" name="funName"/>
+	  <variable type="QString" name="comment"/>
+	  <variable type="QDate" name="dateInserted"/>
+	  <variable type="QString" name="userName"/>
+	  <variable type="QString" name="login"/>
+    </class>
+    <class name="ECSMessage" >
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="fromUserID"/>
+	  <variable type="qint64" name="toUserID"/>
+	  <variable type="QString" name="title"/>
+	  <variable type="QString" name="content"/>
+	  <variable type="QDateTime" name="dateInserted"/>
+	  <variable type="qint32" name="msgType"/>
+	  <variable type="QString" name="fromUserName"/>
+	  <variable type="QByteArray" name="toUserIcon"/>
+    </class>
+    <class name="ECSNew" >
+	  <variable type="qint64" name="id"/>
+	  <variable type="QString" name="content"/>
+	  <variable type="QDateTime" name="dateInserted"/>
+	  <variable type="QByteArray" name="icon"/>
+	  <variable type="QString" name="from"/>
+          <variable type="QString" name="title"/>
+	  <variable type="qint64" name="contactID"/>
+	  <variable type="qint64" name="userID"/>
+	  <variable type="qint64" name="likesCount"/>
+    </class>
+    <class name="ECSNewComment" >
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="newsID"/>
+	  <variable type="qint64" name="userID"/>
+	  <variable type="QString" name="comment"/>
+	  <variable type="QDateTime" name="dateInserted"/>
+	  <variable type="QString" name="userName"/>
+	  <variable type="QString" name="login"/>
+	  <variable type="QByteArray" name="userIcon"/>
+    </class>
+    <class name="ECSNewLike" >
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="newsID"/>
+	  <variable type="qint64" name="userID"/>
+	  <variable type="qint64" name="likeIt"/>
+	  <variable type="QString" name="userName"/>
+	  <variable type="QByteArray" name="userIcon"/>
+    </class>
+    <class name="ENewGrouped" >
+      <variable type="qint64" name="placeID"/>
+      <variable type="qint64" name="contactID"/>
+      <variable type="QString" name="contactName"/>
+      <variable type="qint32" name="unreadCount"/>
+    </class>
+    <class name="ERating" >
+	  <variable type="qint32" name="rating"/>
+	  <variable type="qint32" name="voteCount"/>
+    </class>
+    <class name="EImage" >
+	  <variable type="QString" name="thumbPath"/>
+	  <variable type="QString" name="bigPath"/>
+	  <variable type="QString" name="fileName"/>
+    </class>
+    <class name="EContact" >
+      <variable type="qint64" name="userID"/>
+      <variable type="qint64" name="placeID"/>
+      <variable type="QString" name="name"/>
+    </class>
+    <class name="EContactsGroup" >
+	  <variable type="qint64" name="id"/>
+	  <variable type="QString" name="name"/>
+	  <variable type="qint64" name="iconID"/>
+    </class>
+    <class name="EContactsGroupUser" >
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="groupID"/>
+	  <variable type="qint64" name="contactID"/>
+    </class>
+    <class name="EAdsCategory" >
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="parentID"/>
+	  <variable type="QString" name="name"/>
+    </class>
+    <class name="EAppConfig">
+	  <variable type="qint64" name="id"/>
+	  <variable type="QString" name="defaultAuthor"/>
+	  <variable type="qint32" name="agendaSorting"/>
+	  <variable type="qint32" name="agendaPeriod"/>
+	  <variable type="qint64" name="cityID"/>
+	  <variable type="QString" name="cityName"/>
+	  <variable type="QString" name="login"/>
+	  <variable type="QString" name="password"/>
+	  <variable type="qint32" name="autoLogin"/>
+	  <variable type="qint32" name="swVersion"/>
+	  <variable type="qint32" name="agreementVersion"/>
+	  <variable type="qint32" name="isValid"/>
+	  <variable type="qint32" name="listCount"/>
+	  <variable type="qint32" name="lastMsgRead"/>
+    </class>
+    <class name="EFavorite">
+	  <variable type="qint64" name="id"/>
+          <variable type="qint64" name="userID"/>
+          <variable type="qint64" name="placeID"/>
+    </class>
+    <class name="EUserHistory">
+      <variable type="qint32" name="historyType"/>
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="visualID"/>
+      <variable type="QString" name="name"/>
+      <variable type="QString" name="placeName"/>
+      <variable type="qint64" name="placeID"/>
+      <variable type="QDateTime" name="dateInserted"/>
+      <variable type="QTime" name="fixedTime"/>
+    </class>
+    <class name="EFunPlacesComment">
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="funID"/>
+	  <variable type="qint64" name="userID"/>
+	  <variable type="qint32" name="rating"/>
+	  <variable type="QString" name="comment"/>
+	  <variable type="QDateTime" name="dateInserted"/>
+    </class>
+    <class name="EFunView">
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="userID"/>
+	  <variable type="qint64" name="funID"/>
+    </class>
+    <class name="EIcon">
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="iconType"/>
+	  <variable type="qint64" name="typeID"/>
+	  <variable type="QString" name="name"/>
+	  <variable type="QString" name="description"/>
+    </class>
+    <class name="ENeighborhood">
+	  <variable type="qint64" name="id"/>
+	  <variable type="QString" name="name"/>
+	  <variable type="qint32" name="cityRegion"/>
+    </class>
+    <class name="ENewsComment">
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="newsID"/>
+	  <variable type="qint64" name="userID"/>
+	  <variable type="QString" name="comment"/>
+	  <variable type="QDateTime" name="dateInserted"/>
+    </class>
+    <class name="ENewsLike">
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="newsID"/>
+	  <variable type="qint64" name="userID"/>
+	  <variable type="bool" name="likeit"/>
+    </class>
+    <class name="ECategory">
+	  <variable type="qint64" name="id"/>
+	  <variable type="qint64" name="parentID"/>
+	  <variable type="QString" name="name"/>
+    </class>
+    <class name="EMobileCounts">
+      <variable type="qint32" name="unreadMsgCount"/>
+      <variable type="qint32" name="unreadNewsCount"/>
+      <variable type="qint32" name="unreadQualificationsCount"/>
+      <variable type="bool" name="containsMngBlocks"/>
+    </class>
+    <class name="ERBlockSchedule">
+          <variable type="qint64" name="id"/>
+          <variable type="qint64" name="placeID"/>
+          <variable type="QString" name="name"/>
+          <variable type="qint32" name="approvalType"/>
+          <variable type="bool" name="clientsMayCancel"/>
+          <variable type="qint32" name="minimumCancelTime"/>
+          <variable type="qint32" name="nextBlockType"/>
+          <variable type="qint64" name="nextBlockID"/>
+          <variable type="qint32" name="menu1BlockType"/>
+          <variable type="qint32" name="menu2BlockType"/>
+          <variable type="qint32" name="menu3BlockType"/>
+          <variable type="qint32" name="menu4BlockType"/>
+          <variable type="qint64" name="menu1BlockID"/>
+          <variable type="qint64" name="menu2BlockID"/>
+          <variable type="qint64" name="menu3BlockID"/>
+          <variable type="qint64" name="menu4BlockID"/>
+          <variable type="QString" name="menu1Text"/>
+          <variable type="QString" name="menu2Text"/>
+          <variable type="QString" name="menu3Text"/>
+          <variable type="QString" name="menu4Text"/>
+    </class>
+    <class name="ESqliteConfig"> <!--um para o mobile e outro para o studio-->
+        <variable type="qint32" name="languageCodeID"/>
+        <variable type="qint64" name="currentCityID"/>
+        <variable type="QString" name="currentCityName"/>
+        <variable type="bool" name="autoLogin"/>
+        <variable type="QString" name="login"/>
+        <variable type="QByteArray" name="password"/>
+    </class>
+    <class name="EUserBlock">
+      <variable type="qint64" name="id"/>
+      <variable type="qint32" name="blockType"/>
+      <variable type="QString" name="name"/>
+    </class>
+    <class name="EUserBlockWelcome">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="userID"/>
+      <variable type="QString" name="name"/>
+      <variable type="qint32" name="nextBlockType"/>
+      <variable type="qint64" name="nextBlockID"/>
+      <variable type="QString" name="brief"/>
+      <variable type="QString" name="description"/>
+      <variable type="bool" name="displayStatus"/>
+      <variable type="QTime" name="mondayStart"/>
+      <variable type="QTime" name="mondayEnd"/>
+      <variable type="QTime" name="tuesdayStart"/>
+      <variable type="QTime" name="tuesdayEnd"/>
+      <variable type="QTime" name="wednesdayStart"/>
+      <variable type="QTime" name="wednesdayEnd"/>
+      <variable type="QTime" name="thursdayStart"/>
+      <variable type="QTime" name="thursdayEnd"/>
+      <variable type="QTime" name="fridayStart"/>
+      <variable type="QTime" name="fridayEnd"/>
+      <variable type="QTime" name="saturdayStart"/>
+      <variable type="QTime" name="saturdayEnd"/>
+      <variable type="QTime" name="sundayStart"/>
+      <variable type="QTime" name="sundayEnd"/>
+      <variable type="QTime" name="holidayStart"/>
+      <variable type="QTime" name="holidayEnd"/>
+      <variable type="QString" name="userName"/>
+      <variable type="bool" name="isFavorite"/>
+      <variable type="qint32" name="infoVisibility"/>
+      <variable type="qint32" name="currentUserVisibility"/>
+      <variable type="QString" name="address"/>
+      <variable type="QString" name="postalCode"/>
+      <variable type="QString" name="phone1"/>
+      <variable type="QString" name="phone2"/>
+      <variable type="QString" name="phone3"/>
+      <variable type="QString" name="neighborhood"/>
+      <variable type="QString" name="cityName"/>
+      <variable type="qint32" name="cityRegionID"/>
+      <variable type="QString" name="webSite"/>
+      <variable type="qint32" name="capacity"/>
+      <variable type="QString" name="structure"/>
+    </class>
+    <class name="EUserBlockMenu">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="userID"/>
+      <variable type="QString" name="name"/>
+    </class>
+    <class name="EUserMenu">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="blockID"/>
+      <variable type="QString" name="title"/>
+      <variable type="QString" name="subTitle"/>
+      <variable type="qint32" name="targetBlockType"/>
+      <variable type="qint64" name="targetBlockID"/>
+      <variable type="qint32" name="visibility"/>
+      <variable type="qint32" name="nextBlockVisibility"/>
+    </class>
+    <class name="EUserBlockPictures">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="userID"/>
+      <variable type="QString" name="name"/>
+      <variable type="qint32" name="visibility"/>
+    </class>
+    <class name="EUserPicture">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="userID"/>
+      <variable type="qint64" name="blockID"/>
+      <variable type="qint32" name="picNumber"/>
+      <variable type="QString" name="name"/>
+      <variable type="QString" name="description"/>
+    </class>
+    <class name="EUserBlockProducts">
+        <variable type="qint64" name="id"/>
+        <variable type="qint64" name="userID"/>
+        <variable type="QString" name="name"/>
+        <variable type="qint32" name="visibility"/>
+        <variable type="bool" name="displayImg"/>
+        <variable type="bool" name="displayPrice"/>
+        <variable type="bool" name="sellProducts"/>
+        <variable type="bool" name="deliverProducts"/>
+        <variable type="double" name="deliveryTax"/>
+        <variable type="bool" name="acceptExternalOrderWhenClosed"/>
+        <variable type="bool" name="acceptOnlinePayment"/>
+        <variable type="qint32" name="paymentTypes"/>
+        <variable type="qint32" name="creditCardTypes"/>
+        <variable type="qint32" name="currencyType"/>
+        <variable type="bool" name="collectAndDeliver"/>
+        <variable type="qint32" name="minimumDeliverDays"/>
+        <variable type="qint32" name="nextBlockType"/>
+        <variable type="qint64" name="nextBlockID"/>
+        <variable type="bool" name="containsCategoriesExternal"/>
+    </class>
+    <class name="EUserProduct">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="userID"/>
+      <variable type="qint64" name="categoryID"/>
+      <variable type="QString" name="name"/>
+      <variable type="QString" name="brief"/>
+      <variable type="QString" name="description"/>
+      <variable type="double" name="price"/>
+      <variable type="qint64" name="viewCount"/>
+      <variable type="QString" name="categoryName"/>
+      <variable type="QString" name="option1Name"/>
+      <variable type="QString" name="option2Name"/>
+      <variable type="QString" name="option3Name"/>
+      <variable type="QString" name="addOnName"/>
+    </class>
+    <class name="EUserOrderConfirmation">
+        <variable type="qint64" name="userID"/>
+        <variable type="qint64" name="buyerUserID"/>
+        <variable type="QString" name="note"/>
+        <variable type="qint32" name="paymentType"/>
+        <variable type="qint32" name="creditCardType"/>
+        <variable type="qint32" name="isCollectAndDeliver"/>
+        <variable type="QDate" name="collectDate"/>
+        <variable type="QDate" name="deliveryDate"/>
+        <variable type="qint32" name="collectPeriod"/>
+        <variable type="qint32" name="deliveryPeriod"/>
+    </class>
+    <class name="EUserProductCategory">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="parentID"/>
+      <variable type="qint64" name="userID"/>
+      <variable type="QString" name="name"/>
+    </class>
+    <class name="EUserProductOption">
+        <variable type="qint64" name="id"/>
+        <variable type="qint64" name="productID"/>
+        <variable type="qint32" name="level"/>
+        <variable type="QString" name="name"/>
+        <variable type="double" name="price"/>
+    </class>
+    <class name="EUserProductAddon">
+        <variable type="qint64" name="id"/>
+        <variable type="qint64" name="productID"/>
+        <variable type="QString" name="name"/>
+        <variable type="double" name="price"/>
+    </class>
+    <class name="EUserBlockSchedule">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="userID"/>
+      <variable type="QString" name="name"/>
+      <variable type="qint32" name="visibility"/>
+    </class>
+    <class name="EUserBlockText">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="userID"/>
+    </class>
+    <class name="ESearch">
+      <variable type="qint64" name="id"/>
+      <variable type="qint32" name="type"/>
+      <variable type="QString" name="name"/>
+      <variable type="QString" name="brief"/>
+      <variable type="qint64" name="categoryID"/>
+      <variable type="qint32" name="rating"/>
+      <variable type="qint64" name="viewCount"/>
+      <variable type="QString" name="cityName"/>
+    </class>
+    <class name="EUserFavorite">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="userID"/>
+      <variable type="qint64" name="otherUserID"/>
+      <variable type="qint64" name="placeID"/>
+      <variable type="QString" name="name"/>
+      <variable type="QString" name="brief"/>
+      <variable type="bool" name="enabled"/>
+      <variable type="qint32" name="visibility"/>
+    </class>
+    <class name="EUserService">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="professionalUserID"/>
+      <variable type="QString" name="name"/>
+      <variable type="QString" name="brief"/>
+      <variable type="QString" name="description"/>
+      <variable type="float" name="price"/>
+      <variable type="int" name="duration"/>
+      <variable type="int" name="maxPerUserOnDay"/>
+      <variable type="int" name="maxPerUserOnWeek"/>
+      <variable type="int" name="maxPerUserOnMonth"/>
+    </class>
+    <class name="EUserServiceTimetableStatus">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="professionalUserID"/>
+      <variable type="qint32" name="weekDay"/>
+      <variable type="qint32" name="status"/>
+      <variable type="qint32" name="sameAsWeekDay"/>
+    </class>
+    <class name="EUserServiceTimetable">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="serviceID"/>
+      <variable type="QString" name="serviceName"/>
+      <variable type="qint32" name="weekDay"/>
+      <variable type="qint32" name="maximumCount"/>
+      <variable type="qint32" name="gapDisplayed"/>
+      <variable type="QTime" name="period1Start"/>
+      <variable type="QTime" name="period1End"/>
+      <variable type="QTime" name="period2Start"/>
+      <variable type="QTime" name="period2End"/>
+      <variable type="QTime" name="period3Start"/>
+      <variable type="QTime" name="period3End"/>
+      <variable type="QTime" name="period4Start"/>
+      <variable type="QTime" name="period4End"/>
+    </class>
+    <class name="EUserServiceException">
+      <variable type="qint64" name="id"/>
+      <variable type="qint64" name="professionalUserID"/>
+      <variable type="QDate" name="exceptionDate"/>
+      <variable type="qint32" name="status"/>
+    </class>
+    <class name="EUserSchedule">
+        <variable type="qint64" name="id"/>
+        <variable type="qint64" name="visualID"/>
+        <variable type="qint64" name="professionalUserID"/>
+        <variable type="QString" name="professionalUserName"/>
+        <variable type="qint64" name="clientUserID"/>
+        <variable type="QString" name="clientUserName"/>
+        <variable type="qint64" name="serviceID"/>
+        <variable type="QDate" name="dt"/>
+        <variable type="QTime" name="tm"/>
+        <variable type="QString" name="comment"/>
+        <variable type="bool" name="isNew"/>
+        <variable type="qint32" name="status"/>
+        <variable type="QString" name="serviceName"/>
+        <variable type="QString" name="servicePrice"/>
+        <variable type="qint64" name="clientID"/>
+        <variable type="QString" name="clientMobile"/>
+        <variable type="QString" name="clientPhone"/>
+    </class>
+    <class name="EUserScheduleConfirmation">
+      <variable type="qint64" name="serviceID"/>
+      <variable type="QString" name="serviceName"/>
+      <variable type="qint64" name="professionalUserID"/>
+      <variable type="QString" name="professionalUserName"/>
+      <variable type="QString" name="professionalAddress"/>
+      <variable type="QString" name="professionalPhone"/>
+      <variable type="double" name="servicePrice"/>
+      <variable type="qint32" name="currencyType"/>
+      <variable type="QDate" name="dt"/>
+      <variable type="QTime" name="tm"/>
+      <variable type="bool" name="autoConfirmed"/>
+      <variable type="qint32" name="status"/>
+      <variable type="bool" name="clientsMayCancel"/>
+      <variable type="qint32" name="minimumCancelTime"/>
+    </class>
+    <class name="EUserClient">
+        <variable type="qint64" name="id"/>
+        <variable type="qint64" name="professionalUserID"/>
+        <variable type="qint64" name="clientUserID"/>
+        <variable type="bool" name="isNew"/>
+        <variable type="QString" name="comment"/>
+        <variable type="QDate" name="clientSince"/>
+        <variable type="QString" name="name"/>
+        <variable type="QString" name="login"/>
+        <variable type="QString" name="countryName"/>
+        <variable type="QString" name="stateName"/>
+        <variable type="QString" name="cityName"/>
+        <variable type="QDate" name="bornDate"/>
+        <variable type="QString" name="email"/>
+        <variable type="QString" name="homePhone"/>
+        <variable type="QString" name="homeAddress"/>
+        <variable type="QString" name="homeAddressReference"/>
+        <variable type="QString" name="homePostalCode"/>
+        <variable type="QString" name="mobilePhone"/>
+        <variable type="QDate" name="subscription"/>
+        <variable type="qint32" name="rating"/>
+        <variable type="QString" name="document"/>
+        <variable type="qint64" name="cityID"/>
+        <variable type="qint32" name="cityRegion"/>
+    </class>
+    <class name="EUserScheduleQueue">
+        <variable type="qint64" name="id"/>
+        <variable type="qint64" name="professionalUserID"/>
+        <variable type="qint64" name="clientUserID"/>
+        <variable type="qint64" name="serviceID"/>
+        <variable type="QDate" name="dt1"/>
+        <variable type="QDate" name="dt2"/>
+        <variable type="QDate" name="dt3"/>
+        <variable type="QDate" name="dt4"/>
+        <variable type="QDate" name="dt5"/>
+        <variable type="QString" name="comment"/>
+        <variable type="QDateTime" name="dateInserted"/>
+        <variable type="QString" name="clientName"/>
+        <variable type="QString" name="clientPhone"/>
+        <variable type="QString" name="serviceName"/>
+    </class>
+
+
+    <class name="ETest">
+<!--      <variable type="qint64" name="id"/>
+      <variable type="QString" name="name"/>
+      <variable type="double" name="servicePrice"/>
+      <variable type="QDate" name="dt"/>-->
+      <variable type="QTime" name="tm"/>
+    </class>
+</classes>
+</project>
